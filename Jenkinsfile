@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REPO_URL = "https://github.com/data-on-disk/dod-main-ui.git"
+        REPO_URL = "https://github.com/ashsih-raj-devops/angular-UI.git"
         WEB_VM = "webuser@34.66.161.81"
         NGINX_VM = "nginxuser@34.136.178.145"
         PROJECT_NAME = "DOD Main UI - dev"
@@ -21,7 +21,7 @@ pipeline {
                     rm -rf $APP_BUILD_DIR || true
                     mkdir -p $APP_BUILD_DIR
                     cd $APP_BUILD_DIR
-                    git clone ${REPO_URL} -b preprod repo
+                    git clone ${REPO_URL} -b dev repo
                     cd repo
                     docker stop ${CONTAINER_NAME} || true
                     docker rm ${CONTAINER_NAME} || true
